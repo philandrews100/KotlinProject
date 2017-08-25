@@ -1,34 +1,31 @@
-package smpl.code.me.kotlinproject
+package smpl.code.me.kotlinproject.activities.main
 
-import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
-import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import smpl.code.me.kotlinproject.R
+import smpl.code.me.kotlinproject.R.layout.activity_main
+import smpl.code.me.kotlinproject.activities.core.CoreActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : CoreActivity() {
+
+    override fun viewLayout() = activity_main
+
+    override fun setupView() {
+        bnController.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+    }
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
-                message.setText(R.string.title_home)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_dashboard -> {
-                message.setText(R.string.title_dashboard)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {
-                message.setText(R.string.title_notifications)
                 return@OnNavigationItemSelectedListener true
             }
         }
         false
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 }
