@@ -41,7 +41,7 @@ class MainActivity : CoreActivity(), MainInterface {
      * Fragment Functions
      */
 
-    override fun startDashboardFragment() = fragmentController!!.addNewFragment(DashboardFragment(), "DashboardFragment")
-    override fun startHomeFragment() = fragmentController!!.addNewFragment(HomeFragment(), "HomeFragment")
-    override fun startNotificationsFragment() = fragmentController!!.addNewFragment(NotificationsFragment(), "NotificationsFragment")
+    override fun startDashboardFragment() = fragmentController!!.switchFragment(DashboardFragment(), "DashboardFragment")
+    override fun startHomeFragment() = fragmentController!!.switchFragment(HomeFragment(), "HomeFragment")
+    override fun startNotificationsFragment() = fragmentController!!.switchFragment(NotificationsFragment(), "NotificationsFragment")
 }

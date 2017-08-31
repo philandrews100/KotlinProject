@@ -41,10 +41,6 @@ public class FragmentController {
 
     }
 
-    public void popBackStack() {
-        fragmentManager.popBackStack();
-    }
-
     private void removeOldFragment() {
         fragmentTransaction = getFragManager().beginTransaction();
         if (currentFragment != null) {
